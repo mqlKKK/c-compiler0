@@ -1,0 +1,549 @@
+.data
+max_num: .word 1024
+s10: .asciiz " "
+s6: .asciiz "  "
+s7: .asciiz "          "
+s11: .asciiz "          The total is "
+s8: .asciiz " ---------------------------------------------------------------          "
+s12: .asciiz " 10! = "
+s4: .asciiz " OVERFLOW!          "
+s2: .asciiz " SWAP x = "
+s3: .asciiz " SWAP y = "
+s9: .asciiz " b = "
+s5: .asciiz " complete number: "
+s0: .asciiz " x = "
+s1: .asciiz " y = "
+.text
+subi $sp $sp 4
+sw $fp ($sp)
+move $fp $sp
+subi $sp $sp 4
+sw $ra ($sp)
+j main
+factorial:subi $sp $sp 4
+sw $a0 -8($fp)
+lw $t0 -8($fp)
+li $t1 1
+sub $t2 $t0 $t1
+bgtz $t2 label_1
+li $v1 1
+move $t0 $ra
+lw $ra -4($fp)
+move $sp $fp
+lw $fp ($fp)
+addi $sp $sp 4
+jr $t0
+label_1:
+lw $t0 -8($fp)
+li $t1 1
+sub $t2 $t0 $t1
+subi $sp $sp 4
+sw $t2 -12($fp)
+lw $a0 -12($fp)
+subi $sp $sp 4
+sw $fp ($sp)
+move $fp $sp
+subi $sp $sp 4
+sw $ra ($sp)
+jal factorial
+subi $sp $sp 4
+sw $v1 -16($fp)
+lw $t0 -8($fp)
+lw $t1 -16($fp)
+mul $t2 $t0 $t1
+subi $sp $sp 4
+sw $t2 -20($fp)
+lw $v1 -20($fp)
+move $t0 $ra
+lw $ra -4($fp)
+move $sp $fp
+lw $fp ($fp)
+addi $sp $sp 4
+jr $t0
+mod:subi $sp $sp 4
+sw $a0 -8($fp)
+subi $sp $sp 4
+sw $a1 -12($fp)
+lw $t0 -8($fp)
+lw $t1 -12($fp)
+div $t2 $t0 $t1
+subi $sp $sp 4
+sw $t2 -16($fp)
+lw $t0 -16($fp)
+lw $t1 -12($fp)
+mul $t2 $t0 $t1
+subi $sp $sp 4
+sw $t2 -20($fp)
+lw $t0 -8($fp)
+lw $t1 -20($fp)
+sub $t2 $t0 $t1
+subi $sp $sp 4
+sw $t2 -24($fp)
+lw $t0 -24($fp)
+sw $t0 -8($fp)
+lw $v1 -8($fp)
+move $t0 $ra
+lw $ra -4($fp)
+move $sp $fp
+lw $fp ($fp)
+addi $sp $sp 4
+jr $t0
+swap:subi $sp $sp 4
+sw $a0 -8($fp)
+subi $sp $sp 4
+sw $a1 -12($fp)
+subi $sp $sp 4
+la $a0 s0
+li $v0 4
+syscall
+lw $t0 -8($fp)
+move $a0 $t0
+li $v0 1
+syscall
+la $a0 s1
+li $v0 4
+syscall
+lw $t0 -12($fp)
+move $a0 $t0
+li $v0 1
+syscall
+lw $t0 -8($fp)
+sw $t0 -16($fp)
+lw $t0 -12($fp)
+sw $t0 -8($fp)
+lw $t0 -16($fp)
+sw $t0 -12($fp)
+la $a0 s2
+li $v0 4
+syscall
+lw $t0 -8($fp)
+move $a0 $t0
+li $v0 1
+syscall
+la $a0 s3
+li $v0 4
+syscall
+lw $t0 -12($fp)
+move $a0 $t0
+li $v0 1
+syscall
+move $t0 $ra
+lw $ra -4($fp)
+move $sp $fp
+lw $fp ($fp)
+addi $sp $sp 4
+jr $t0
+complete_num:subi $sp $sp 4
+sw $a0 -8($fp)
+subi $sp $sp 512
+subi $sp $sp 4
+subi $sp $sp 4
+subi $sp $sp 4
+subi $sp $sp 4
+subi $sp $sp 4
+subi $sp $sp 4
+subi $sp $sp 4
+subi $sp $sp 4
+subi $sp $sp 4
+subi $sp $sp 4
+subi $sp $sp 4
+subi $sp $sp 4
+subi $sp $sp 4
+lw $t0 -8($fp)
+sw $t0 -528($fp)
+label_3:
+lw $t0 -528($fp)
+la $t1 max_num
+lw $t2 ($t1)
+sub $t1 $t0 $t2
+bgez $t1 label_2
+li $t0 0
+li $t1 1
+sub $t2 $t0 $t1
+subi $sp $sp 4
+sw $t2 -576($fp)
+lw $t0 -576($fp)
+sw $t0 -532($fp)
+lw $t0 -528($fp)
+sw $t0 -536($fp)
+li $t0 1
+sw $t0 -524($fp)
+label_5:
+lw $t0 -524($fp)
+lw $t1 -528($fp)
+sub $t2 $t0 $t1
+bgez $t2 label_4
+lw $t0 -528($fp)
+lw $t1 -524($fp)
+div $t2 $t0 $t1
+subi $sp $sp 4
+sw $t2 -580($fp)
+lw $t0 -580($fp)
+lw $t1 -524($fp)
+mul $t2 $t0 $t1
+subi $sp $sp 4
+sw $t2 -584($fp)
+lw $t0 -584($fp)
+sw $t0 -540($fp)
+lw $a0 -528($fp)
+lw $a1 -524($fp)
+subi $sp $sp 4
+sw $fp ($sp)
+move $fp $sp
+subi $sp $sp 4
+sw $ra ($sp)
+jal mod
+subi $sp $sp 4
+sw $v1 -588($fp)
+lw $t0 -588($fp)
+li $t1 0
+sub $t2 $t0 $t1
+bne $t2 $zero label_6
+lw $t0 -532($fp)
+li $t1 1
+addu $t2 $t0 $t1
+subi $sp $sp 4
+sw $t2 -592($fp)
+lw $t0 -592($fp)
+sw $t0 -532($fp)
+lw $t0 -536($fp)
+lw $t1 -524($fp)
+sub $t2 $t0 $t1
+subi $sp $sp 4
+sw $t2 -596($fp)
+lw $t0 -596($fp)
+sw $t0 -536($fp)
+lw $t0 -532($fp)
+li $t1 128
+sub $t2 $t0 $t1
+bltz $t2 label_7
+la $a0 s4
+li $v0 4
+syscall
+label_7:
+lw $t0 -532($fp)
+li $t1 128
+sub $t2 $t0 $t1
+bgez $t2 label_8
+lw $t0 -524($fp)
+lw $t1 -532($fp)
+li $t2 -4
+mul $t2 $t2 $t1
+li $t1  -12
+add $t1 $t1 $t2
+add $t1 $t1 $fp
+sw $t0 ($t1)
+label_8:
+label_6:
+lw $t0 -524($fp)
+li $t1 1
+addu $t2 $t0 $t1
+subi $sp $sp 4
+sw $t2 -600($fp)
+lw $t0 -600($fp)
+sw $t0 -524($fp)
+j label_5
+label_4:
+lw $t0 -536($fp)
+li $t1 0
+sub $t2 $t0 $t1
+bne $t2 $zero label_9
+la $a0 s5
+li $v0 4
+syscall
+lw $t0 -528($fp)
+move $a0 $t0
+li $v0 1
+syscall
+li $t0 0
+sw $t0 -524($fp)
+label_11:
+lw $t0 -524($fp)
+lw $t1 -532($fp)
+sub $t2 $t0 $t1
+bgtz $t2 label_10
+lw $t0 -524($fp)
+li $t1 -4
+mul $t1 $t1 $t0
+add $t1 $t1 -12
+add $t1 $t1 $fp
+lw $t0 ($t1)
+subi $sp $sp 4
+sw $t0 -604($fp)
+la $a0 s6
+li $v0 4
+syscall
+lw $t0 -604($fp)
+move $a0 $t0
+li $v0 1
+syscall
+lw $t0 -524($fp)
+li $t1 1
+addu $t2 $t0 $t1
+subi $sp $sp 4
+sw $t2 -608($fp)
+lw $t0 -608($fp)
+sw $t0 -524($fp)
+j label_11
+label_10:
+la $a0 s7
+li $v0 4
+syscall
+label_9:
+lw $t0 -528($fp)
+li $t1 1
+addu $t2 $t0 $t1
+subi $sp $sp 4
+sw $t2 -612($fp)
+lw $t0 -612($fp)
+sw $t0 -528($fp)
+j label_3
+label_2:
+la $a0 s8
+li $v0 4
+syscall
+li $t0 0
+sw $t0 -564($fp)
+li $t0 0
+sw $t0 -524($fp)
+label_13:
+lw $t0 -524($fp)
+la $t1 max_num
+lw $t2 ($t1)
+sub $t1 $t0 $t2
+bgez $t1 label_12
+lw $t0 -564($fp)
+lw $t1 -524($fp)
+mul $t2 $t0 $t1
+subi $sp $sp 4
+sw $t2 -616($fp)
+lw $t0 -616($fp)
+sw $t0 -568($fp)
+lw $t0 -528($fp)
+lw $t1 -532($fp)
+mul $t2 $t0 $t1
+subi $sp $sp 4
+sw $t2 -620($fp)
+lw $t0 -620($fp)
+sw $t0 -572($fp)
+lw $t0 -616($fp)
+sw $t0 -564($fp)
+lw $t0 -564($fp)
+lw $t1 -568($fp)
+addu $t2 $t0 $t1
+subi $sp $sp 4
+sw $t2 -624($fp)
+lw $t0 -624($fp)
+lw $t1 -572($fp)
+addu $t2 $t0 $t1
+subi $sp $sp 4
+sw $t2 -628($fp)
+lw $t0 -628($fp)
+sw $t0 -564($fp)
+lw $t0 -524($fp)
+li $t1 1
+addu $t2 $t0 $t1
+subi $sp $sp 4
+sw $t2 -632($fp)
+lw $t0 -632($fp)
+sw $t0 -524($fp)
+j label_13
+label_12:
+lw $t0 -564($fp)
+sw $t0 -568($fp)
+li $t0 0
+sw $t0 -524($fp)
+label_15:
+lw $t0 -524($fp)
+la $t1 max_num
+lw $t2 ($t1)
+sub $t1 $t0 $t2
+bgez $t1 label_14
+lw $t0 -568($fp)
+lw $t1 -524($fp)
+addu $t2 $t0 $t1
+subi $sp $sp 4
+sw $t2 -636($fp)
+lw $t0 -636($fp)
+sw $t0 -568($fp)
+lw $t0 -524($fp)
+li $t1 1
+addu $t2 $t0 $t1
+subi $sp $sp 4
+sw $t2 -640($fp)
+lw $t0 -640($fp)
+sw $t0 -524($fp)
+j label_15
+label_14:
+la $a0 s9
+li $v0 4
+syscall
+lw $t0 -568($fp)
+move $a0 $t0
+li $v0 1
+syscall
+la $a0 s8
+li $v0 4
+syscall
+li $t0 0
+sw $t0 -552($fp)
+li $t0 1
+sw $t0 -556($fp)
+li $t0 2
+sw $t0 -544($fp)
+label_17:
+lw $t0 -544($fp)
+la $t1 max_num
+lw $t2 ($t1)
+sub $t1 $t0 $t2
+bgtz $t1 label_16
+lw $t0 -544($fp)
+li $t1 2
+div $t2 $t0 $t1
+subi $sp $sp 4
+sw $t2 -644($fp)
+lw $t0 -644($fp)
+sw $t0 -548($fp)
+li $t0 2
+sw $t0 -524($fp)
+label_19:
+lw $t0 -524($fp)
+lw $t1 -548($fp)
+sub $t2 $t0 $t1
+bgtz $t2 label_18
+lw $t0 -544($fp)
+lw $t1 -524($fp)
+div $t2 $t0 $t1
+subi $sp $sp 4
+sw $t2 -648($fp)
+lw $t0 -648($fp)
+lw $t1 -524($fp)
+mul $t2 $t0 $t1
+subi $sp $sp 4
+sw $t2 -652($fp)
+lw $t0 -652($fp)
+sw $t0 -560($fp)
+lw $a0 -544($fp)
+lw $a1 -524($fp)
+subi $sp $sp 4
+sw $fp ($sp)
+move $fp $sp
+subi $sp $sp 4
+sw $ra ($sp)
+jal mod
+subi $sp $sp 4
+sw $v1 -656($fp)
+lw $t0 -656($fp)
+li $t1 0
+sub $t2 $t0 $t1
+bne $t2 $zero label_20
+li $t0 0
+sw $t0 -556($fp)
+label_20:
+lw $t0 -524($fp)
+li $t1 1
+addu $t2 $t0 $t1
+subi $sp $sp 4
+sw $t2 -660($fp)
+lw $t0 -660($fp)
+sw $t0 -524($fp)
+j label_19
+label_18:
+lw $t0 -556($fp)
+li $t1 1
+sub $t2 $t0 $t1
+bne $t2 $zero label_21
+la $a0 s10
+li $v0 4
+syscall
+lw $t0 -544($fp)
+move $a0 $t0
+li $v0 1
+syscall
+lw $t0 -552($fp)
+li $t1 1
+addu $t2 $t0 $t1
+subi $sp $sp 4
+sw $t2 -664($fp)
+lw $t0 -664($fp)
+sw $t0 -552($fp)
+lw $t0 -552($fp)
+li $t1 10
+div $t2 $t0 $t1
+subi $sp $sp 4
+sw $t2 -668($fp)
+lw $t0 -668($fp)
+li $t1 10
+mul $t2 $t0 $t1
+subi $sp $sp 4
+sw $t2 -672($fp)
+lw $t0 -672($fp)
+sw $t0 -560($fp)
+lw $t0 -560($fp)
+lw $t1 -552($fp)
+sub $t2 $t0 $t1
+bne $t2 $zero label_22
+la $a0 s7
+li $v0 4
+syscall
+label_22:
+label_21:
+li $t0 1
+sw $t0 -556($fp)
+lw $t0 -544($fp)
+li $t1 1
+addu $t2 $t0 $t1
+subi $sp $sp 4
+sw $t2 -676($fp)
+lw $t0 -676($fp)
+sw $t0 -544($fp)
+j label_17
+label_16:
+la $a0 s11
+li $v0 4
+syscall
+lw $t0 -552($fp)
+move $a0 $t0
+li $v0 1
+syscall
+move $t0 $ra
+lw $ra -4($fp)
+move $sp $fp
+lw $fp ($fp)
+addi $sp $sp 4
+jr $t0
+main:subi $sp $sp 4
+li $a0 10
+subi $sp $sp 4
+sw $fp ($sp)
+move $fp $sp
+subi $sp $sp 4
+sw $ra ($sp)
+jal factorial
+subi $sp $sp 4
+sw $v1 -12($fp)
+lw $t0 -12($fp)
+sw $t0 -8($fp)
+la $a0 s12
+li $v0 4
+syscall
+lw $t0 -8($fp)
+move $a0 $t0
+li $v0 1
+syscall
+li $a0 5
+li $a1 10
+subi $sp $sp 4
+sw $fp ($sp)
+move $fp $sp
+subi $sp $sp 4
+sw $ra ($sp)
+jal swap
+li $a0 2
+subi $sp $sp 4
+sw $fp ($sp)
+move $fp $sp
+subi $sp $sp 4
+sw $ra ($sp)
+jal complete_num
+label_0:

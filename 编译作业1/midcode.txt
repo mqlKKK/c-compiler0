@@ -1,0 +1,248 @@
+const int pi = 314
+const int a10 = 10
+const int a20 = 20
+const int a30 = -30
+const char adder = +
+const char pluser = *
+const char number = 8
+const char letter = a
+int var2
+int var3
+array int varray 010
+char var5
+char var6
+array char varraychar 20
+int var1
+char var4
+int add ()
+para int a
+para int b
+const int var1 = 1
+int c
+@t0 = a + b
+c = @t0
+@t1 = c * var1
+c = @t1
+ret c
+void fortest ()
+int i
+printf "for test"
+i = 0
+GOTO label_1
+label_2 :
+i <= 10
+BZ label_3
+label_1 :
+printf i
+i = i + 2
+GOTO label_2
+label_3 :
+i = 0
+GOTO label_4
+label_5 :
+0 == 1
+BZ label_6
+label_4 :
+printf i
+i = i - 5
+GOTO label_5
+label_6 :
+i = 10
+GOTO label_7
+label_8 :
+i >= 0
+BZ label_9
+label_7 :
+printf i
+i = i - 2
+GOTO label_8
+label_9 :
+printf "for test finished"
+ret 
+int exptest ()
+int a
+int c
+char b
+printf "exptest begin,please input a int and a char"
+scanf a
+scanf b
+@t2 = 0 - 10
+@t3 = @t2 + 20
+@t4 = a * @t3
+@t5 = @t4 / 5
+a = @t5
+@t6 = 0 - 97
+@t7 = @t6 + b
+c = @t7
+printf a
+printf c
+@t8 = c + b
+ret @t8
+int arraytest ()
+varray [ 0 ]  = 1
+varray [ 1 ]  = 2
+varray [ 2 ]  = 3
+varray [ 3 ]  = 4
+varray [ 4 ]  = 5
+@t9 = varray [ 0 ] 
+@t10 = varray [ 0 ] 
+@t11 = varray [ @t10 ] 
+@t12 = @t9 + @t11
+@t13 = varray [ 2 ] 
+@t14 = @t12 + @t13
+@t15 = varray [ 3 ] 
+@t16 = @t14 + @t15
+@t17 = varray [ 4 ] 
+@t18 = @t16 * @t17
+ret @t18
+int fib ()
+para int a
+a == 1
+BZ label_10
+ret 1
+label_10 :
+a == 2
+BZ label_11
+ret 1
+label_11 :
+@t19 = a - 1
+push @t19
+call fib
+@t20 = RET
+@t21 = a - 2
+push @t21
+call fib
+@t22 = RET
+@t23 = @t20 + @t22
+ret @t23
+void whiletest ()
+para int a
+printf "while test"
+label_13 :
+a > 0
+BZ label_12
+printf a
+@t24 = a - 3
+a = @t24
+GOTO label_13
+label_12 :
+label_15 :
+15 > a
+BZ label_14
+printf a
+@t25 = a + 5
+a = @t25
+GOTO label_15
+label_14 :
+printf "while test finished"
+ret 
+void calltest3 ()
+para char a
+para char b
+para char c
+para char d
+printf a
+printf b
+printf c
+printf d
+printf "this is calltest3"
+ret 
+void calltest2 ()
+push letter
+push pluser
+push adder
+push number
+call calltest3
+printf "this is calltest2"
+ret 
+int calltest1 ()
+printf "this is calltest1"
+call calltest2
+ret 0
+char chartest ()
+printf 'H'
+printf 'E'
+printf 'L'
+printf 'L'
+printf 'O'
+@t26 = 87
+ret @t26
+void main ()
+int result
+int fibnum
+char cc
+printf "test is starting"
+printf "add test:"
+push a10
+push a20
+call add
+@t27 = RET
+result = @t27
+printf "add result: 10+20="
+printf result
+call exptest
+@t28 = RET
+printf "exptest result:"
+printf @t28
+printf "array test"
+call arraytest
+@t29 = RET
+@t30 = @t29 + 5
+result = @t30
+printf "array test result:"
+printf result
+printf "recursion test,please input a fib number"
+scanf fibnum
+fibnum > 10
+BZ label_16
+printf "fibnum is too big"
+GOTO label_17
+label_16 :
+fibnum < 1
+BZ label_18
+printf "fibnum is too small"
+GOTO label_19
+label_18 :
+push fibnum
+call fib
+@t31 = RET
+printf "fib result is:"
+printf @t31
+label_19 :
+label_17 :
+printf "loop test beign"
+push 10
+call whiletest
+call fortest
+printf "loop test finished"
+printf "if test begin"
+0 == 1
+BZ label_20
+printf "error"
+label_20 :
+1 == 1
+BZ label_21
+printf "correct"
+label_21 :
+printf "please input: 'a'"
+scanf cc
+cc == 97
+BZ label_22
+printf "your input is correct!"
+GOTO label_23
+label_22 :
+printf "error!"
+label_23 :
+printf "string test"
+printf "! #$%&'()*+,-./0123456789:;<=>?@ABCXYZabcxyz[\]^_{|}~"
+printf "string test finished"
+printf "char test"
+call chartest
+@t32 = RET
+printf @t32
+printf "call test"
+call calltest1
+@t33 = RET
+printf "call test finished"
+printf "TEST IS OVER!"
+label_0 :

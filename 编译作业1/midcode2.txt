@@ -1,0 +1,435 @@
+const int m = 1
+const int _n = -1
+const int _1 = 93
+const char p = B
+const char q = a
+const char r_2 = 1
+const char s_ = _
+const char _add = +
+const char _sub = -
+const char _mul = *
+const char _div = /
+int x
+array int int_c 010
+int y
+char gwent
+char ciri
+array char char_t 8
+array char char_u 02
+int fib ()
+para int n
+n == 0
+BZ label_1
+ret 0
+label_1 :
+n == 1
+BZ label_2
+ret 1
+GOTO label_3
+label_2 :
+@t0 = n - 1
+push @t0
+call fib
+@t1 = RET
+@t2 = n - 2
+push @t2
+call fib
+@t3 = RET
+@t4 = @t1 + @t3
+ret @t4
+label_3 :
+int int_add1 ()
+para int x
+@t5 = x + 1
+ret @t5
+int sum ()
+para int x
+para int y
+@t6 = x + y
+ret @t6
+int return_1 ()
+ret 1
+char char_ret ()
+para char x
+ret x
+int ch_add_int ()
+para char x
+para int y
+@t7 = x + y
+ret @t7
+int ch_sum ()
+para char x
+para char y
+@t8 = x + y
+ret @t8
+char return_c ()
+@t9 = 99
+ret @t9
+void printf_charadd1 ()
+para char a
+@t10 = a + 1
+printf @t10
+ret 
+void nothing ()
+ret 
+void test12 ()
+const int _abcdefghijklmnopqrstuvwxyz = 1
+const char _abcdefghijklmnopqrstuvwxy = c
+int a
+int c
+int _d
+_d = 95
+@t11 = 97 + 98
+@t12 = @t11 + 99
+@t13 = @t12 + 100
+@t14 = @t13 + 101
+@t15 = @t14 + 102
+@t16 = @t15 + 103
+@t17 = @t16 + 104
+@t18 = @t17 + 105
+@t19 = @t18 + 106
+@t20 = @t19 + 107
+@t21 = @t20 + 108
+@t22 = @t21 + 109
+@t23 = @t22 + 110
+@t24 = @t23 + 111
+@t25 = @t24 + 112
+@t26 = @t25 + 113
+@t27 = @t26 + 114
+@t28 = @t27 + 115
+@t29 = @t28 + 116
+@t30 = @t29 + 117
+@t31 = @t30 + 118
+@t32 = @t31 + 119
+@t33 = @t32 + 120
+@t34 = @t33 + 121
+@t35 = @t34 + 122
+a = @t35
+@t36 = 65 + 66
+@t37 = @t36 + 67
+@t38 = @t37 + 68
+@t39 = @t38 + 69
+@t40 = @t39 + 70
+@t41 = @t40 + 71
+@t42 = @t41 + 72
+@t43 = @t42 + 73
+@t44 = @t43 + 74
+@t45 = @t44 + 75
+@t46 = @t45 + 76
+@t47 = @t46 + 77
+@t48 = @t47 + 78
+@t49 = @t48 + 79
+@t50 = @t49 + 80
+@t51 = @t50 + 81
+@t52 = @t51 + 82
+@t53 = @t52 + 83
+@t54 = @t53 + 84
+@t55 = @t54 + 85
+@t56 = @t55 + 86
+@t57 = @t56 + 87
+@t58 = @t57 + 88
+@t59 = @t58 + 89
+@t60 = @t59 + 90
+c = @t60
+printf _d
+printf a
+printf c
+ret 
+void test13 ()
+int a
+@t61 = 0 + 1
+@t62 = @t61 + 2
+@t63 = @t62 + 3
+@t64 = @t63 + 4
+@t65 = @t64 + 5
+@t66 = @t65 + 6
+@t67 = @t66 + 7
+@t68 = @t67 + 8
+@t69 = @t68 + 9
+@t70 = @t69 + 0
+a = @t70
+printf a
+ret 
+void test14 ()
+para int a
+para int b
+para int c
+para int d
+para int e
+@t71 = a + b
+@t72 = @t71 + c
+@t73 = @t72 + d
+@t74 = @t73 + e
+printf @t74
+ret 
+void printf_2 ()
+printf 2
+ret 
+void main ()
+const int a = 1
+const int b = 2
+char c1
+char c2
+char c3
+int ord
+int q1
+int q2
+int q3
+int q4
+array int s1 020
+array int t1 0010
+q1 = 0
+q2 = 0
+q3 = 0
+scanf ord
+ord == 1
+BZ label_4
+scanf q4
+push q4
+call fib
+@t75 = RET
+q4 = @t75
+printf q4
+label_4 :
+ord == 2
+BZ label_5
+b > 0
+BZ label_6
+@t76 = 98 + 1
+q1 = @t76
+label_6 :
+a < 0
+BZ label_7
+@t77 = 97 + 1
+q2 = @t77
+GOTO label_8
+label_7 :
+b < 1
+BZ label_9
+@t78 = 98 + 1
+q3 = @t78
+GOTO label_10
+label_9 :
+@t79 = 98 - 1
+q3 = @t79
+label_10 :
+label_8 :
+printf "q1="
+printf q1
+printf "q2="
+printf q2
+printf "q3="
+printf q3
+label_5 :
+ord == 3
+BZ label_11
+label_13 :
+q2 < 3
+BZ label_12
+@t80 = q2 + 1
+q2 = @t80
+GOTO label_13
+label_12 :
+printf "before q2:"
+printf q2
+label_15 :
+q2 == 1
+BZ label_14
+@t81 = q2 - 1
+q2 = @t81
+GOTO label_15
+label_14 :
+printf "later q2:"
+printf q2
+label_11 :
+ord == 4
+BZ label_16
+q4 = 1
+GOTO label_17
+label_18 :
+q4 < 4
+BZ label_19
+label_17 :
+@t82 = q2 + 1
+q2 = @t82
+q4 = q4 + 001
+GOTO label_18
+label_19 :
+printf "before q2:"
+printf q2
+q4 = 1
+GOTO label_20
+label_21 :
+q4 < 1
+BZ label_22
+label_20 :
+@t83 = q2 + 1
+q2 = @t83
+q4 = q4 + 001
+GOTO label_21
+label_22 :
+printf "later q2:"
+printf q2
+label_16 :
+ord == 5
+BZ label_23
+printf "! #$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+printf "[]^_`abcdefghijklmnopqrstuvwxyz{|}~"
+label_23 :
+ord == 6
+BZ label_24
+push 1
+call int_add1
+@t84 = RET
+q1 = @t84
+printf q1
+call return_c
+@t85 = RET
+c1 = @t85
+printf c1
+label_24 :
+ord == 7
+BZ label_25
+call printf_2
+push 99
+call printf_charadd1
+label_25 :
+ord == 8
+BZ label_26
+q1 = 10
+printf q1
+@t86 = 2 * 1
+s1 [ @t86 ]  = 97
+@t87 = s1 [ 2 ] 
+printf @t87
+label_26 :
+ord == 9
+BZ label_27
+scanf q1
+scanf c1
+printf "test9"
+printf "q1="
+printf q1
+printf "c1="
+printf c1
+GOTO label_0
+label_27 :
+ord == 10
+BZ label_28
+q1 = 1
+q2 = 2
+q3 = q1
+@t88 = 3 * 2
+@t89 = @t88 + 1
+s1 [ @t89 ]  = 2
+printf q3
+@t90 = 0 - 100
+q3 = @t90
+printf q3
+call return_c
+@t91 = RET
+push 98
+push 1
+call ch_add_int
+@t92 = RET
+@t93 = q1 * q3
+@t94 = @t93 / q2
+@t95 = 3 * 4
+@t96 = @t95 - 2
+@t97 = @t94 - @t96
+@t98 = 99 + 2
+@t99 = @t97 + @t98
+@t100 = @t99 - @t91
+@t101 = @t100 + @t92
+@t102 = s1 [ 7 ] 
+@t103 = @t102 * 2
+@t104 = @t101 - @t103
+q4 = @t104
+printf q4
+@t105 = 100 + 20
+t1 [ 0 ]  = @t105
+@t107 = 0 - @t102  
+@t108 = 2 * 3
+@t109 = @t107 + @t108
+t1 [ 1 ]  = @t109
+@t111 = @t108 / 3  
+@t112 = 0 - 1
+push 2
+push @t112
+call sum
+@t113 = RET
+t1 [ @t111 ]  = @t113
+@t114 = t1 [ 1 ] 
+@t115 = @t114 + 140
+@t116 = t1 [ 2 ] 
+@t117 = @t115 * @t116
+@t118 = t1 [ 0 ] 
+@t119 = @t117 - @t118
+@t120 = @t119 + 40
+q1 = @t120
+printf q1
+label_28 :
+ord == 11
+BZ label_29
+q1 = 1
+q2 = 2
+q3 = 2
+q4 = 0
+q1 < q2
+BZ label_30
+@t121 = q4 + 1
+q4 = @t121
+label_30 :
+printf q4
+@t122 = q3 / q2
+q1 <= @t122
+BZ label_31
+@t123 = q4 + 1
+q4 = @t123
+label_31 :
+printf q4
+q2 > q3
+BZ label_32
+@t124 = q4 + 1
+q4 = @t124
+label_32 :
+printf q4
+q2 >= q3
+BZ label_33
+@t125 = q4 + 1
+q4 = @t125
+label_33 :
+printf q4
+q2 != q3
+BZ label_34
+@t126 = q4 + 1
+q4 = @t126
+label_34 :
+printf q4
+@t127 = q3 * q1
+q2 == @t127
+BZ label_35
+@t128 = q4 + 1
+q4 = @t128
+label_35 :
+printf q4
+label_29 :
+ord == 12
+BZ label_36
+call test12
+label_36 :
+ord == 13
+BZ label_37
+call test13
+label_37 :
+ord == 14
+BZ label_38
+push 1
+push 2
+push 3
+push 4
+push 5
+call test14
+label_38 :
+label_0 :
+
